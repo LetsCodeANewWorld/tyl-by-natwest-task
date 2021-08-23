@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "execute:local": "npx wdio ./tests/config/wdio.local.config.ts && allure generate allure-results/ --clean && allure open"
+    "execute:local": "npx wdio ./tests/config/wdio.local.config.ts",
+    "generate-report": "allure generate allure-results/ --clean && allure open"
   },
   "keywords": [
     "webdriverio"

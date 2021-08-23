@@ -6,11 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import {default as allureReporter} from '@wdio/allure-reporter'
 
-console.log('first call =>')
 setSessionValues.getRunTimeParametersAndSetDefaultValues();
-
-console.log(`feature file path is ${setSessionValues.featureFilePath}`)
-console.log(`browser is ${setSessionValues.webbrowser}`)
 
 /** Retrieve file paths from a given folder and its subfolders. */
 const getStepDefsPaths = (folderPath: string) => {
@@ -115,6 +111,7 @@ const config = {
         fs.removeSync('allure-results/')
         // Create the `.screenshots/` folder
         fs.ensureDir('tests/reports/cucumberjs-json-report/screenshots/', err => {
+            if (err)
             console.log(err)
         })
     },
@@ -130,26 +127,6 @@ const config = {
      */
     afterScenario: async function(world: any, result: any) {
         allureReporter.addArgument('timestamp', String(Date.now()));
-    },
-
-    /**
-     * Gets executed after all workers got shut down and the process is about to exit. An error
-     * thrown in the onComplete hook will result in the test run failing.
-     * @param {Object} exitCode 0 - success, 1 - fail
-     * @param {Object} config wdio configuration object
-     * @param {Array.<Object>} capabilities list of capabilities details
-     * @param {<Object>} results object containing test results
-     */
-    onComplete: async function() {
-        // const reportError = new Error('Could not generate Allure report')
-        // // @ts-ignore
-        // const generation = allure(['generate', 'allure-results', '--clean'])
-        //
-        // await generation.on('exit', (exitCode: any) => {
-        //     console.log('Generation is finished with code:', exitCode);
-        //     if(exitCode==0)
-        //         console.log('Allure report successfully generated')
-        // });
     },
 
     beforeSession() {

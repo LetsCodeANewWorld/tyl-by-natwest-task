@@ -22,15 +22,24 @@
 
 1. To run the test on default chrome browser, use the below command :
 
-    **npm run execute:local:generateReport**
+    **npm run execute:local**
 
 2. To run on a specific browser:
 
-   **npm run execute:local:generateReport -- --webbrowser=firefox**
+   **npm run execute:local -- --webbrowser=firefox**
 
 3. To run a specific ff :
     Add a new feature file and then execute below command
-   **npm run execute:local:generateReport -- --webbrowser=firefox --featureFilePath={featurefileName}**
+   **npm run execute:local -- --webbrowser=firefox --ff=featurefileName**
+
+[comment]: <> (To run a specific browser, pass -- --webbrowser='firefox')
+[comment]: <> (To run a specific feature, pass -- --ff=featurefileName)
+[comment]: <> (To run a specific tag, pass -- --tags=tagname)
 
 
-[comment]: <> (To run a specific browser, pass --webbrowser='firefox')
+===========Generate Allure report===========
+
+**npm run generate-report**
+
+
+![img.png](img.png)

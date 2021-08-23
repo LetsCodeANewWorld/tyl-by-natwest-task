@@ -5,10 +5,6 @@ const config = Object.assign(baseconfig.config, {
 	runner: 'local',
 	services: setSessionValues.addVRTServiceInConfig('local'),
 	reporters: ['spec',
-		// [
-		// 'cucumberjs-json', {
-		// 	jsonFolder: 'tests/reports/cucumberjs-json-report/json/',
-		// }]
 		['allure', {
 			outputDir: 'allure-results',
 			disableWebdriverStepsReporting: true,
